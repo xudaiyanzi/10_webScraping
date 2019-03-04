@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mars_101</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../static/css/style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 
@@ -39,14 +39,16 @@
               <div class="col-md-4 ">
                 <h1 class="display-6">Mars 101 </h1> 
                 </br>
-                <iframe width="400" height="225" src="https://www.youtube.com/embed/D8pnmwOXhoY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
+                <div class="video-container">
+                  <iframe width="400" height="225" src="https://www.youtube.com/embed/D8pnmwOXhoY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                  </iframe>
+                </div>
               </div>  
               <!--Set the 'mars_weather' session--> 
               <div class="col-md-4">  
                     <h1 class="display-6 text-center">Mars Weather</h1> 
                     </br>
-                    <p class="card-text">{{mars.weather}}</p>
+                    <p class="card-text container-fluid">{{mars.weather}}</p>
 
               </div>
 
