@@ -37,9 +37,13 @@ def welcome():
     import datetime
     time_now = datetime.datetime.now()
 
-    # Return template and data
-    return render_template("index.html", mars = mars, update_time = time_now)
+    # Set the flask_table for rendering to html
+    # use pandas module to convert dataframework into a '.html' file
+    import pandas as pd
+    extract_table = pd.read_csv("mars_table.csv")
 
+    # Return template and data
+    return render_template("index.html", mars = mars, update_time = time_now, table = extract_table.to_html(index = False, justify="center", classes="table table-striped table-sm"))
 
 #######################################################################################
 ############################# create scrape page #####################################

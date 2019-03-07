@@ -125,9 +125,13 @@ def scrape_info():
     tables = pd.read_html(mars_facts) # Returns list of all tables on page
     mars_extract = tables[0] # Select table of interest
 
-    # use pandas module to convert dataframework into a '.html' file
-    mars_facts_table = mars_extract.to_html()
-    mars_extract.to_html('mars_table.html')
+    # we need clean the data
+    mars_extract.columns = ['Properties', 'Value']
+    mars_extract.set_index(['Properties'], inplace=True)
+
+    # We can also use the flask-table to build the table inside the html
+    # in order to do this we need to have a csv file and let "app.py" to read the "table.csv"
+    mars_extract.to_csv("mars_table.csv")
 
 
     ##############################################################################
@@ -179,7 +183,7 @@ def scrape_info():
     mars_data = {'news':news_data,
                  'featured_image_url':featured_image_url,
                  'weather':mars_weather,
-                 'facts_table':mars_facts_table,
+                 #'facts_table':mars_facts_table,
                  'hemisphere_image_urls':hemisphere_image_urls}
 
 
