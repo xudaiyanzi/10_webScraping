@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 # import the splinter to browse continuous pages
 from splinter import Browser
 
+import time 
+
 # use the path to start the chrome
 def init_browser():
     executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
@@ -22,6 +24,7 @@ def scrape_info():
     url_news_main = 'https://mars.nasa.gov'
     url_news_1 = '/news'
     browser.visit(url_news_main+url_news_1)
+    time.sleep(10)
 
     # use beautifulsoup and its html.parser on html
     html = browser.html
@@ -118,7 +121,7 @@ def scrape_info():
     import pandas as pd
 
     # use Splinter with BeautifulSoup
-    mars_facts = 'http://space-facts.com/mars/'
+    mars_facts = 'https://space-facts.com/mars/'
     browser.visit(mars_facts)
 
     # pandas extract table from html
